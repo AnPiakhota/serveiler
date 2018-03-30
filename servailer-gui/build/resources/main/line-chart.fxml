@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--maxHeight="Infinity" maxWidth="Infinity" minHeight="Infinity" minWidth="Infinity"-->
+<!--https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/line-chart.htm#CIHGBCFI-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import java.net.URL?>
+<TitledPane animated="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="root" text="Chart"
+            xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.itsm.controller.LineChartController">
+
+    <content>
+
+    <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                prefHeight="200.0" prefWidth="200.0"
+    >
+        <content>
+
+        <GridPane fx:id="chartGridPane" alignment="center" hgap="5" vgap="5" maxHeight="Infinity" maxWidth="Infinity">
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="40"/>
+            </padding>
+
+            <gridLinesVisible>false</gridLinesVisible>
+
+            <children>
+
+                <!--<LineChart GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.hgrow="always"-->
+                           <!--GridPane.vgrow="always">-->
+                    <!--<xAxis>-->
+                        <!--<CategoryAxis fx:id="xAxis" label="Time (s)" />-->
+                    <!--</xAxis>-->
+
+                    <!--<yAxis>-->
+                        <!--<NumberAxis fx:id="yAxis" label="Temperature (Â°C)" side="LEFT" upperBound="160.0"/>-->
+                    <!--</yAxis>-->
+
+                <!--</LineChart>-->
+
+            </children>
+
+        </GridPane>
+
+
+        </content>
+    </ScrollPane>
+
+    </content>
+
+    <stylesheets>
+        <URL value="@serveiler-theme.css"/>
+    </stylesheets>
+
+</TitledPane>

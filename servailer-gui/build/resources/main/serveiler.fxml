@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.itsm.util.font.AwesomeFontIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import java.lang.String?>
+<BorderPane maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="root" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsm.controller.ServeilerController">
+
+    <top>
+
+        <AnchorPane maxHeight="-Infinity" maxWidth="Infinity" >
+            <children>
+                <MenuBar fx:id="menuBar" maxHeight="Infinity" maxWidth="Infinity"
+                         AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0">
+                    <menus>
+                        <Menu text="File">
+                            <items>
+                                <MenuItem text="Open" onAction="#chooseFile" />
+                                <SeparatorMenuItem />
+                                <MenuItem disable="true" text="Workspace" />
+                                <SeparatorMenuItem />
+                                <MenuItem text="Reload" onAction="#reloadFirmware" />
+                                <MenuItem text="Refresh" onAction="#refresh" />
+                                <SeparatorMenuItem />
+                                <MenuItem text="Exit" onAction="#exit" />
+                            </items>
+                        </Menu>
+                        <Menu text="Run">
+                            <items>
+                                <MenuItem text="Run"  onAction="#runTest" />
+                                <MenuItem text="Calibration" />
+                            </items>
+                        </Menu>
+                        <Menu text="Help">
+                            <items>
+                                <MenuItem text="Manual" visible="true" />
+                                <SeparatorMenuItem />
+                                <MenuItem text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+
+                <HBox fx:id="portBar" alignment="CENTER_RIGHT" maxHeight="Infinity" maxWidth="-Infinity"
+                      AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" style="-fx-font-size: 10pt; -fx-font-weight: bold;">
+                    <padding>
+                        <Insets bottom="0" left="0" right="1" top="0" />
+                    </padding>
+                    <Label maxHeight="-Infinity" maxWidth="-Infinity" HBox.hgrow="NEVER" text="Port: " alignment="CENTER_RIGHT" />
+                    <TextField fx:id="textFieldComPort" maxHeight="-Infinity" maxWidth="-Infinity" alignment="CENTER_LEFT"
+                               editable="false" onMouseClicked="#setComPort" HBox.hgrow="NEVER" text="/dev/ttyUSB0"/>
+                </HBox>
+
+            </children>
+
+        </AnchorPane>
+
+    </top>
+
+    <left>
+        <ToolBar orientation="VERTICAL" styleClass="toolbar-icon-awesome-style">
+            <items>
+                <Button fx:id="buttonStart" maxWidth="Infinity" onAction="#runTest" style="-fx-text-fill:#8BC34A;">
+                        <text><AwesomeFontIcon fx:constant="FA_PLAY" /></text>
+                        <tooltip><Tooltip text="Start"/></tooltip>
+                </Button>
+                <Button fx:id="btnOpen" maxWidth="Infinity" onAction="#chooseFile" style="-fx-text-fill:#FFEE58">
+                        <text><AwesomeFontIcon fx:constant="FA_FOLDER_OPEN" /></text>
+                        <tooltip><Tooltip text="Open"/></tooltip>
+                </Button>
+
+                <Button fx:id="btnRefresh" maxWidth="Infinity" onAction="#refresh" style="-fx-text-fill:#FFFFFF">
+                    <text><AwesomeFontIcon fx:constant="FA_REFRESH" /></text>
+                    <tooltip><Tooltip text="Refresh"/></tooltip>
+                </Button>
+
+                <Separator orientation="HORIZONTAL" />
+
+                <Button fx:id="buttonCalibration" maxWidth="Infinity" onAction="#moderate" style="-fx-text-fill:#03A9F4">
+                    <text><AwesomeFontIcon fx:constant="FA_LINODE" /></text>
+                    <tooltip><Tooltip text="Calibration"/></tooltip>
+                </Button>
+
+                <Button fx:id="btnCheckInterval" maxWidth="Infinity" onAction="#storeCheckInterval" style="-fx-text-fill:#03A9F4">
+                    <text><AwesomeFontIcon fx:constant="FA_XING" /></text>
+                    <tooltip><Tooltip text="Check Interval"/></tooltip>
+                </Button>
+
+                <Button fx:id="btnOutputVoltage" maxWidth="Infinity" onAction="#requestOutputVoltage" style="-fx-text-fill:#03A9F4">
+                    <text><AwesomeFontIcon fx:constant="FA_BOLT" /></text>
+                    <tooltip><Tooltip text="Output Voltage"/></tooltip>
+                </Button>
+
+                <Separator orientation="HORIZONTAL" />
+
+                <Button fx:id="buttonPing" maxWidth="Infinity" onAction="#ping" style="-fx-text-fill:#F4511E">
+                    <text><AwesomeFontIcon fx:constant="FA_PODCAST" /></text>
+                    <tooltip><Tooltip text="Ping"/></tooltip>
+                </Button>
+
+                <Separator orientation="HORIZONTAL" />
+
+                <Button fx:id="btnReload" maxWidth="Infinity" onAction="#reloadFirmware" style="-fx-text-fill:#9E9E9E">
+                    <text><AwesomeFontIcon fx:constant="FA_UPLOAD" /></text>
+                    <tooltip><Tooltip text="Reload - TBD"/></tooltip>
+                </Button>
+
+            </items>
+        </ToolBar>
+    </left>
+
+    <center>
+
+        <StackPane>
+            <children>
+
+            <fx:include fx:id="chart" source="line-chart.fxml" />
+
+                <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="1" styleClass="toolbar-icon-awesome-style" StackPane.alignment="TOP_RIGHT">
+
+                    <padding>
+                        <Insets bottom="30" left="30" right="20" top="30" />
+                    </padding>
+
+                    <Spinner fx:id="spinnerChartDisplayRangeInput" editable="true">
+                        <styleClass>
+                            <String fx:value="split-arrows-horizontal" />
+                        </styleClass>
+                        <valueFactory>
+                            <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory fx:id="chartDisplayRangeValueFactory">
+                                <min>5</min>
+                                <max>1000</max>
+                                <amountToStepBy>1</amountToStepBy>
+                                <wrapAround>false</wrapAround>
+                            </javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory>
+                        </valueFactory>
+                        <tooltip><Tooltip text="Chart display range"/></tooltip>
+                    </Spinner>
+
+                    <Separator orientation="VERTICAL" />
+
+                    <Button fx:id="buttonChartDisplayComposite">
+                        <text><AwesomeFontIcon fx:constant="FA_LINE_CHART" /></text>
+                    </Button>
+
+                    <Button fx:id="buttonChartDisplayVertical">
+                        <text><AwesomeFontIcon fx:constant="FA_TASKS" /></text>
+                    </Button>
+
+                    <Button fx:id="buttonChartDisplayQuaternary">
+                        <text><AwesomeFontIcon fx:constant="FA_TH_LARGE" /></text>
+                    </Button>
+
+                </HBox>
+
+                <HBox maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="TOP_LEFT" spacing="30" >
+
+                    <padding>
+                        <Insets bottom="30" left="20" right="30" top="30" />
+                    </padding>
+
+                    <Slider fx:id="sliderScale" blockIncrement="1" min="0" max="100" prefWidth="500"
+                            maxHeight="-Infinity" maxWidth="Infinity" orientation="HORIZONTAL"
+                            showTickLabels="true" showTickMarks="true" majorTickUnit="10" >
+                        <tooltip>
+                            <Tooltip text="Scale" autoFix="true"  />
+                        </tooltip>
+                    </Slider>
+
+                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="1" styleClass="toolbar-icon-awesome-style">
+
+                        <Button fx:id="buttonChartTickLess">
+                            <text><AwesomeFontIcon fx:constant="FA_MINUS" /></text>
+                        </Button>
+
+                        <Button fx:id="buttonChartTickMore">
+                            <text><AwesomeFontIcon fx:constant="FA_PLUS" /></text>
+                        </Button>
+
+                    </HBox>
+
+                </HBox>
+
+            </children>
+        </StackPane>
+
+    </center>
+
+    <right>
+
+    </right>
+
+    <bottom>
+
+        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="Infinity" style="-fx-font-size: 10pt;">
+            <padding>
+                <Insets bottom="1" left="5" right="1" top="1" />
+            </padding>
+            <Label fx:id="statusMessageField" maxHeight="-Infinity" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+
+            <Separator orientation="VERTICAL" />
+
+            <ProgressBar fx:id="statusProgressBar" prefWidth="300" maxWidth="-Infinity" progress="-1" visible="false"  />
+
+            <Separator orientation="VERTICAL" />
+
+            <Label fx:id="checkIntervalStatus" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                   style="-fx-text-fill:#FFFFFF; -fx-font-weight: normal;" text="Check Interval: " visible="false" >
+
+            <padding><Insets top="5" right="15" bottom="5" left="15"/></padding>
+
+            </Label>
+
+
+            <!--<TextField fx:id="checkIntervalDisplay" editable="false" onMouseClicked="#setCheckInterval"-->
+                       <!--styleClass="check-interval-set-style" />-->
+
+            <!--<Separator orientation="VERTICAL" />-->
+
+            <Label fx:id="outputVoltageStatus" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                   style="-fx-text-fill:#FFFFFF; -fx-font-weight: normal;" text="Output Voltage: 0" visible="true">
+
+            <!--<TextField fx:id="checkIntervalDisplay" editable="false" onMouseClicked="#setCheckInterval"-->
+                       <!--styleClass="check-interval-set-style" />-->
+
+            <padding><Insets top="5" right="15" bottom="5" left="15"/></padding>
+
+        </Label>
+
+    </HBox>
+
+    </bottom>
+
+    <stylesheets>
+        <URL value="@serveiler-theme.css" />
+    </stylesheets>
+
+</BorderPane>

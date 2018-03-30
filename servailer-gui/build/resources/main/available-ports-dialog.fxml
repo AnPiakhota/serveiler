@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Dialog?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextArea?>
+<Dialog fx:id="dialog" xmlns:fx="http://javafx.com/fxml" height="100" width="200"  >
+    <dialogPane>
+
+        <DialogPane maxWidth="Infinity" maxHeight="Infinity" style="-fx-font-size: 12pt;"
+                    styleClass="check-interval-set-style" xmlns="http://javafx.com/javafx/8.0.102-ea">
+
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="5"/>
+            </padding>
+
+            <header>
+                <Label fx:id="dialogHeader" wrapText="true">
+                    <padding>
+                        <Insets bottom="15" left="5" right="5" top="15"/>
+                    </padding>
+                </Label>
+            </header>
+            <content>
+                <TextArea fx:id="logTextArea" maxHeight="-Infinity" maxWidth="Infinity" styleClass="moderation-log-area-style">
+                    <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+                    <text></text>
+                </TextArea>
+            </content>
+
+            <stylesheets>
+                <URL value="@serveiler-theme.css"/>
+            </stylesheets>
+
+        </DialogPane>
+
+    </dialogPane>
+
+</Dialog>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.collections.*?>
+
+<?import java.lang.String?>
+<fx:root fx:id="gainFactorRequestPane" alignment="center" hgap="10" prefWidth="800" styleClass="moderation-request-fragment-style" type="GridPane" vgap="10" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+    <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+
+    <children>
+
+        <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1">
+
+            <Label fx:id="labelOrder" alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity"
+                   style="-fx-background-color: transparent; -fx-text-fill: #7CB342; -fx-font-weight: bold; -fx-font-size: 25;" text="">
+                <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+            </Label>
+
+            <ImageView fx:id="imageViewAction" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image backgroundLoading="true" url="@/images/parameter-enter-arrow.png" />
+                </image>
+            </ImageView>
+        </HBox>
+
+        <ChoiceBox fx:id="currentFactorChoice" maxHeight="Infinity" maxWidth="Infinity" styleClass="moderation-coefficient-style"
+                   GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" value="2">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="4" />
+                    <String fx:value="8" />
+                    <String fx:value="16" />
+                    <String fx:value="32" />
+                    <String fx:value="64" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <ChoiceBox fx:id="voltageFactorChoice" maxHeight="Infinity" maxWidth="Infinity" styleClass="moderation-coefficient-style"
+                   GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" value="2">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="4" />
+                    <String fx:value="8" />
+                    <String fx:value="16" />
+                    <String fx:value="32" />
+                    <String fx:value="64" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <Button fx:id="buttonRequest" maxHeight="Infinity" maxWidth="Infinity" onAction="#request" text="Request"
+                GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+
+    </children>
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="30.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="30.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="40" prefHeight="40.0" valignment="CENTER" vgrow="ALWAYS" />
+        <!--<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />-->
+    </rowConstraints>
+
+    <stylesheets>
+        <URL value="@serveiler-theme.css" />
+    </stylesheets>
+
+</fx:root>

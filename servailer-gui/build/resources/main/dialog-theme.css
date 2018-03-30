@@ -1,0 +1,49 @@
+.root {
+    -fx-base: rgb(50, 50, 50);
+    -fx-background: rgb(50, 50, 50);
+    -fx-control-inner-background:  rgb(50, 50, 50);
+    -icons-color: rgb(61,114,144);
+}
+
+.dialog-pane{
+    -fx-border-color: derive(-fx-base,5%);
+    -fx-border-width:2.0px;
+}
+
+/**Costumization of The Bar where the buttons are located**/
+.dialog-pane > .button-bar > .container {
+    -fx-background-color: derive(-fx-base,5%);
+}
+
+.dialog-pane > .content.label {
+    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+    -fx-background-color: derive(-fx-base,5%);
+    -fx-text-fill:white;
+    -fx-font-size:15.0px;
+}
+
+/**Costumization of DialogPane Header**/
+.dialog-pane .header-panel {
+    -fx-background-color: derive(-fx-base,5%);
+}
+
+.dialog-pane .header-panel .label{
+    -fx-background-color: derive(-fx-base,5%);
+    -fx-background-radius:10px;
+    -fx-text-fill:white;
+    -fx-font-size:15.0px;
+}
+
+/*.dialog-pane .button{*/
+    /*-fx-background-color:black;*/
+    /*-fx-text-fill:white;*/
+    /*-fx-wrap-text: true;*/
+    /*!*-fx-effect: dropshadow( three-pass-box, yellow, 10.0, 0.0, 0.0, 0.0);*!*/
+    /*-fx-cursor:hand;*/
+/*}*/
+
+/*.dialog-pane .button:hover{*/
+    /*-fx-background-color:white;*/
+    /*-fx-text-fill:black;*/
+    /*-fx-font-weight:bold;*/
+/*}*/

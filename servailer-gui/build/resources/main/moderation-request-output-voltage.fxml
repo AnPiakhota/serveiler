@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.image.*?>
+
+<fx:root type="GridPane" fx:id="outputVoltageRequestPane" xmlns:fx="http://javafx.com/fxml"
+         alignment="center" hgap="10" styleClass="moderation-request-fragment-style" vgap="10"
+         xmlns="http://javafx.com/javafx/8.0.102-ea" prefWidth="800">
+
+    <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+
+    <children>
+
+        <HBox spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1"
+              alignment="CENTER">
+
+            <Label fx:id="labelOrder" alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity"
+                   style="-fx-background-color: transparent; -fx-text-fill: #7CB342; -fx-font-weight: bold; -fx-font-size: 25;" text="1">
+                <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+            </Label>
+
+            <ImageView fx:id="imageViewAction" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@/images/parameter-enter-arrow.png" backgroundLoading="true"  />
+                </image>
+            </ImageView>
+        </HBox>
+
+        <TextField fx:id="textFieldArgument" maxWidth="Infinity" promptText="Enter constant value 1" styleClass="moderation-coefficient-style"
+                   maxHeight="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Button fx:id="buttonRequest" text="Request" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1"
+                maxHeight="Infinity" maxWidth="Infinity" onAction="#request"
+        />
+
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" halignment="CENTER" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="30.0" halignment="CENTER" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="30.0" halignment="CENTER" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" halignment="CENTER" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="40" prefHeight="40.0" vgrow="ALWAYS"  valignment="CENTER" />
+        <!--<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />-->
+    </rowConstraints>
+
+    <stylesheets>
+        <URL value="@serveiler-theme.css" />
+    </stylesheets>
+
+</fx:root>

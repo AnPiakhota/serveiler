@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<fx:root type="GridPane" fx:id="calibrationRequest" xmlns:fx="http://javafx.com/fxml"
+         alignment="center" hgap="10" styleClass="calibration-request-fragment-style" vgap="10"
+         xmlns="http://javafx.com/javafx/8.0.102-ea" prefWidth="800">
+
+    <padding><Insets bottom="5" left="0" right="0" top="5" /></padding>
+
+    <children>
+
+        <Label text="Amperage:" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <TextField GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <TextField GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Button text="Reset" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1"
+                maxWidth="Infinity" onAction="#resetClientAmperage" />
+
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+
+    <stylesheets>
+        <URL value="@serveiler-theme.css" />
+    </stylesheets>
+
+</fx:root>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+
+<?import javafx.scene.control.TextArea?>
+<GridPane fx:id="moderationGridPane" alignment="center" hgap="10" prefWidth="1000" styleClass="root" vgap="20" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsm.controller.ModerationController">
+    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+
+    <children>
+
+        <!--CALIBRATION-->
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" style="-fx-background-color: #323232; -fx-text-fill: #636363; -fx-font-weight: bold;"
+               text="CALIBRATION" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+        </Label>
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Coefficient 1" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Coefficient 2" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Button maxHeight="Infinity" maxWidth="Infinity" onAction="#refreshModeration" text="Reset All" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Current:" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1" />
+        <TextField fx:id="currentCoef1" disable="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="calibration-coefficient-set-style"
+                   GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1" />
+        <TextField fx:id="currentCoef2" disable="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="calibration-coefficient-set-style"
+                   GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1" />
+        <Button maxHeight="Infinity" maxWidth="Infinity" onAction="#requestModeration" text="Reset" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1" />
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Voltage:" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+        <TextField fx:id="voltageCoef1" disable="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="calibration-coefficient-set-style"
+                   GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+        <TextField fx:id="voltageCoef2" disable="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="calibration-coefficient-set-style"
+                   GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+        <Button maxHeight="Infinity" maxWidth="Infinity" onAction="#requestModeration" text="Reset" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Temperature:" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="3" GridPane.rowSpan="1" />
+        <TextField fx:id="temperatureCoef1" disable="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="calibration-coefficient-set-style"
+                   GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="3" GridPane.rowSpan="1" />
+        <TextField fx:id="temperatureCoef2" disable="true" maxHeight="Infinity" maxWidth="Infinity" styleClass="calibration-coefficient-set-style"
+                   GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="3" GridPane.rowSpan="1" />
+        <Button maxHeight="Infinity" maxWidth="Infinity" onAction="#requestModeration" text="Reset" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="3" GridPane.rowSpan="1" />
+
+        <!--OUTPUT VOLTAGE-->
+
+        <StackPane maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            <children>
+                <Line endX="500.0" startX="-500.0" stroke="#636363" strokeWidth="2.0" />
+            </children>
+        </StackPane>
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="OUTPUT VOLTAGE" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1"
+               style="-fx-background-color: #323232; -fx-text-fill: #636363; -fx-font-weight: bold;"/>
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Coefficient 1" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1" />
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Coefficient 2" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1" />
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Voltage:" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="6" GridPane.rowSpan="1" />
+        <TextField fx:id="outputVoltageParam1" disable="true" maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="6" GridPane.rowSpan="1" />
+        <TextField fx:id="outputVoltageParam2" disable="true" maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="6" GridPane.rowSpan="1" />
+        <Button maxHeight="Infinity" maxWidth="Infinity" onAction="#requestModeration" text="Reset" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="6" GridPane.rowSpan="1" />
+
+        <!--GAIN FACTOR-->
+
+       <StackPane maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="7" GridPane.rowSpan="1">
+            <children>
+                <Line endX="500.0" startX="-500.0" stroke="#636363" strokeWidth="2.0" />
+            </children>
+        </StackPane>
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="GAIN FACTOR" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.rowSpan="1"
+               style="-fx-background-color: #323232; -fx-text-fill: #636363; -fx-font-weight: bold;" />
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Current" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.rowSpan="1" />
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Voltage" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.rowSpan="1" />
+
+        <Label maxHeight="Infinity" maxWidth="Infinity" text="Factor:" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="9" GridPane.rowSpan="1" />
+        <TextField fx:id="gainFactorCurrent" disable="true" maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="9" GridPane.rowSpan="1" />
+        <TextField fx:id="gainFactorVoltage" disable="true" maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="9" GridPane.rowSpan="1" />
+        <Button maxHeight="Infinity" maxWidth="Infinity" onAction="#requestModeration" text="Reset" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="9" GridPane.rowSpan="1" />
+
+        <Button fx:id="windowCloseButton" maxHeight="Infinity" maxWidth="Infinity"
+                GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.rowIndex="10" GridPane.rowSpan="1">
+            <padding><Insets bottom="10" left="0" right="0" top="10" /></padding>
+            <text>Close</text>
+        </Button>
+
+        <TextArea fx:id="logTextArea" maxHeight="-Infinity" maxWidth="Infinity" styleClass="moderation-log-area-style"
+                  GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="11" GridPane.rowSpan="1" visible="false">
+            <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+            <text></text>
+        </TextArea>
+
+    </children>
+    <columnConstraints>
+        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="30.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="30.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+
+    <stylesheets>
+        <URL value="@serveiler-theme.css" />
+    </stylesheets>
+
+</GridPane>

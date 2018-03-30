@@ -1,0 +1,355 @@
+.root {
+    -fx-base: rgb(50, 50, 50);
+    -fx-background: rgb(50, 50, 50);
+    -fx-control-inner-background:  rgb(50, 50, 50);
+    -icons-color: rgb(61,114,144);
+}
+
+.toolbar-icon-awesome-style:hover{
+    -fx-effect: dropshadow( three-pass-box , derive(-icons-color,0%) , 0.01em, 0.0 , 0, 0);
+}
+
+.tab {
+    -fx-background-color: linear-gradient(to top, -fx-base, derive(-fx-base,30%));
+}
+
+.menu-bar {
+    -fx-background-color: linear-gradient(to bottom, -fx-base, derive(-fx-base,30%));
+}
+
+.tool-bar:horizontal {
+    -fx-background-color:
+            linear-gradient(to bottom, derive(-fx-base,+50%), derive(-fx-base,-40%), derive(-fx-base,-20%));
+}
+
+
+
+/*.button {*/
+    /*-fx-background-color: transparent;*/
+/*}*/
+
+/*.button:hover {*/
+    /*-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;*/
+    /*-fx-color: -fx-hover-base;*/
+/*}*/
+
+
+
+/*.button {*/
+/*-fx-padding: 5 22 5 22;*/
+/*-fx-border-color: #e2e2e2;*/
+/*-fx-border-width: 2;*/
+/*-fx-background-radius: 0;*/
+/*-fx-background-color: #1d1d1d;*/
+/*-fx-fonts-family: "Segoe UI", Helvetica, Arial, sans-serif;*/
+/*-fx-fonts-size: 11pt;*/
+/*-fx-text-fill: #d8d8d8;*/
+/*-fx-background-insets: 0 0 0 0, 0, 1, 2;*/
+/*}*/
+
+/*.button:hover {*/
+/*-fx-background-color: #3a3a3a;*/
+/*}*/
+
+/*.button:pressed, .button:default:hover:pressed {*/
+/*-fx-background-color: white;*/
+/*-fx-text-fill: #1d1d1d;*/
+/*}*/
+
+/*.button:focused {*/
+/*-fx-border-color: white, white;*/
+/*-fx-border-width: 1, 1;*/
+/*-fx-border-style: solid, segments(1, 1);*/
+/*-fx-border-radius: 0, 0;*/
+/*-fx-border-insets: 1 1 1 1, 0;*/
+/*}*/
+
+/*.button:disabled, .button:default:disabled {*/
+/*-fx-opacity: 0.4;*/
+/*-fx-background-color: #1d1d1d;*/
+/*-fx-text-fill: white;*/
+/*}*/
+
+/*.button:default {*/
+/*-fx-background-color: -fx-focus-color;*/
+/*-fx-text-fill: #ffffff;*/
+/*}*/
+
+/*.button:default:hover {*/
+/*-fx-background-color: derive(-fx-focus-color,30%);*/
+/*}*/
+
+
+
+
+.table-view {
+    -fx-table-cell-border-color:derive(-fx-base,+10%);
+    -fx-table-header-border-color:derive(-fx-base,+20%);
+}
+
+.split-pane:horizontal > * > .split-pane-divider {
+    -fx-border-color: transparent -fx-base transparent -fx-base;
+    -fx-background-color: transparent, derive(-fx-base,20%);
+    -fx-background-insets: 0, 0 1 0 1;
+}
+
+.my-gridpane {
+    -fx-background-color: radial-gradient(radius 100%, derive(-fx-base,20%), derive(-fx-base,-20%));
+}
+
+.separator-label {
+    -fx-text-fill: orange;
+}
+
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #7CB342;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #7CB342;
+}
+
+.toolbar-icon-awesome-style {
+    -fx-font-family: FontAwesome;
+    -fx-font-size: 16.0;
+    -fx-effect: innershadow( three-pass-box, derive(-icons-color,-70%), 0.1em, 0.0 , 0.07em, 0.07em );
+    -fx-text-fill: linear-gradient(to bottom, derive(-icons-color,20%) 10%, derive(-icons-color,-40%) 80%);
+}
+
+.moderation-request-fragment-style {
+
+    -fx-background-color: transparent, derive(-fx-base,40%);
+
+}
+
+.moderation-coefficient-set-style {
+    -fx-font-size: 16pt;
+    -fx-border-color: #7CB342;
+    -fx-border-radius: 2;
+    -fx-font-weight: bold;
+
+}
+
+.moderation-coefficient-style {
+    -fx-font-size: 16pt;
+    -fx-border-radius: 2;
+    -fx-font-weight: bold;
+
+}
+    /*-fx-text-fill: #7CB342;*/
+
+.moderation-coefficient-unset-style {
+    -fx-font-size: 16pt;
+    -fx-border-color: rgb(255, 89, 23);
+    -fx-border-radius: 2;
+}
+
+.moderation-log-area-style {
+
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 5 5 5 5;
+
+}
+
+.check-interval-set-style {
+    -fx-font-size: 10pt;
+    -fx-border-radius: 2;
+    -fx-font-weight: bold;
+    -fx-prompt-text-fill: gray;
+}
+
+.check-interval-unset-style {
+    -fx-font-size: 10pt;
+    -fx-border-radius: 2;
+    -fx-border-color: rgb(255, 89, 23);
+    -fx-font-weight: bold;
+    -fx-prompt-text-fill: gray;
+}
+
+.default-color0.chart-series-line { -fx-stroke: #F4511E; }
+.default-color1.chart-series-line { -fx-stroke: #8BC34A; }
+.default-color2.chart-series-line { -fx-stroke: #03A9F4; }
+
+.default-color0.chart-line-symbol { -fx-background-color: #F4511E, #F4511E; }
+.default-color1.chart-line-symbol { -fx-background-color: #8BC34A, #8BC34A; }
+.default-color2.chart-line-symbol { -fx-background-color: #03A9F4, #03A9F4; }
+
+
+.tooltip-hover-current {
+    -fx-background: rgba(30,30,30);
+    -fx-text-fill: white;
+    -fx-background-color: rgba(30,30,30,0.8);
+    -fx-background-radius: 6px;
+    -fx-background-insets: 0;
+    -fx-padding: 0.667em 0.75em 0.667em 0.75em; /* 10px */
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 10, 0.0 , 0 , 3 );
+    -fx-font-size: 0.85em;
+}
+
+
+
+/*.background {*/
+/*-fx-background-color: #1d1d1d;*/
+/*}*/
+
+/*.label {*/
+/*-fx-fonts-size: 11pt;*/
+/*-fx-fonts-family: "Segoe UI Semibold";*/
+/*-fx-text-fill: white;*/
+/*-fx-opacity: 0.6;*/
+/*}*/
+
+/*.label-bright {*/
+/*-fx-fonts-size: 11pt;*/
+/*-fx-fonts-family: "Segoe UI Semibold";*/
+/*-fx-text-fill: white;*/
+/*-fx-opacity: 1;*/
+/*}*/
+
+/*.label-header {*/
+/*-fx-fonts-size: 32pt;*/
+/*-fx-fonts-family: "Segoe UI Light";*/
+/*-fx-text-fill: white;*/
+/*-fx-opacity: 1;*/
+/*}*/
+
+/*.table-view {*/
+/*-fx-base: #1d1d1d;*/
+/*-fx-control-inner-background: #1d1d1d;*/
+/*-fx-background-color: #1d1d1d;*/
+/*-fx-table-cell-border-color: transparent;*/
+/*-fx-table-header-border-color: transparent;*/
+/*-fx-padding: 5;*/
+/*}*/
+
+/*.table-view .column-header-background {*/
+/*-fx-background-color: transparent;*/
+/*}*/
+
+/*.table-view .column-header, .table-view .filler {*/
+/*-fx-size: 35;*/
+/*-fx-border-width: 0 0 1 0;*/
+/*-fx-background-color: transparent;*/
+/*-fx-border-color:*/
+/*transparent*/
+/*transparent*/
+/*derive(-fx-base, 80%)*/
+/*transparent;*/
+/*-fx-border-insets: 0 10 1 0;*/
+/*}*/
+
+/*.table-view .column-header .label {*/
+/*-fx-fonts-size: 20pt;*/
+/*-fx-fonts-family: "Segoe UI Light";*/
+/*-fx-text-fill: white;*/
+/*-fx-alignment: center-left;*/
+/*-fx-opacity: 1;*/
+/*}*/
+
+/*.table-view:focused .table-row-cell:filled:focused:selected {*/
+/*-fx-background-color: -fx-focus-color;*/
+/*}*/
+
+/*.split-pane:horizontal > .split-pane-divider {*/
+/*-fx-border-color: transparent #1d1d1d transparent #1d1d1d;*/
+/*-fx-background-color: transparent, derive(#1d1d1d,20%);*/
+/*}*/
+
+/*.split-pane {*/
+/*-fx-padding: 1 0 0 0;*/
+/*}*/
+
+/*.menu-bar {*/
+/*-fx-background-color: derive(#1d1d1d,20%);*/
+/*}*/
+
+/*.context-menu {*/
+/*-fx-background-color: derive(#1d1d1d,50%);*/
+/*}*/
+
+/*.menu-bar .label {*/
+/*-fx-fonts-size: 14pt;*/
+/*-fx-fonts-family: "Segoe UI Light";*/
+/*-fx-text-fill: white;*/
+/*-fx-opacity: 0.9;*/
+/*}*/
+
+/*.menu .left-container {*/
+/*-fx-background-color: black;*/
+/*}*/
+
+/*.text-field {*/
+/*-fx-fonts-size: 12pt;*/
+/*-fx-fonts-family: "Segoe UI Semibold";*/
+/*}*/
+
+/*!**/
+/** Metro style Push Button*/
+/** Author: Pedro Duque Vieira*/
+/** http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/*/
+/**!*/
+/*.button {*/
+/*-fx-padding: 5 22 5 22;*/
+/*-fx-border-color: #e2e2e2;*/
+/*-fx-border-width: 2;*/
+/*-fx-background-radius: 0;*/
+/*-fx-background-color: #1d1d1d;*/
+/*-fx-fonts-family: "Segoe UI", Helvetica, Arial, sans-serif;*/
+/*-fx-fonts-size: 11pt;*/
+/*-fx-text-fill: #d8d8d8;*/
+/*-fx-background-insets: 0 0 0 0, 0, 1, 2;*/
+/*}*/
+
+/*.button:hover {*/
+/*-fx-background-color: #3a3a3a;*/
+/*}*/
+
+/*.button:pressed, .button:default:hover:pressed {*/
+/*-fx-background-color: white;*/
+/*-fx-text-fill: #1d1d1d;*/
+/*}*/
+
+/*.button:focused {*/
+/*-fx-border-color: white, white;*/
+/*-fx-border-width: 1, 1;*/
+/*-fx-border-style: solid, segments(1, 1);*/
+/*-fx-border-radius: 0, 0;*/
+/*-fx-border-insets: 1 1 1 1, 0;*/
+/*}*/
+
+/*.button:disabled, .button:default:disabled {*/
+/*-fx-opacity: 0.4;*/
+/*-fx-background-color: #1d1d1d;*/
+/*-fx-text-fill: white;*/
+/*}*/
+
+/*.button:default {*/
+/*-fx-background-color: -fx-focus-color;*/
+/*-fx-text-fill: #ffffff;*/
+/*}*/
+
+/*.button:default:hover {*/
+/*-fx-background-color: derive(-fx-focus-color,30%);*/
+/*}*/
+
+
+
+
+
+
+/*.tool-bar {*/
+/*-fx-base: -dark-black;*/
+/*-fx-fonts-size: 12pt;*/
+/*-fx-background-color:*/
+/*linear-gradient(to bottom, derive(-fx-base, -30%), derive(-fx-base, -60%)),*/
+/*linear-gradient(to bottom, -light-black 2%, -dark-black 98%);*/
+/*-fx-background-insets: 0, 0 0 1 0;*/
+/*-fx-padding: .9em 0.416667em .9em 0.416667em;*/
+/*-fx-effect: dropshadow(two-pass-box,black,5,.2,0,0);*/
+/*}*/
+
+/*http://fxexperience.com/2012/02/customized-segmented-toolbar-buttons/*/
+/*https://introjava.wordpress.com/2012/03/23/java-fx-2-linear-gradients/*/

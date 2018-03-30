@@ -1,0 +1,62 @@
+group 'com.itsm.servailer'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+//project(':servailer-gui') {
+//    dependencies {
+//        compile project(':servailer-core')
+//    }
+//}
+
+
+//https://stackoverflow.com/questions/13782013/can-gradle-jar-multiple-projects-into-one-jar
+subprojects.each { subproject -> evaluationDependsOn( subproject.path ) }
+jar.dependsOn subprojects.tasks['classes']
+jar {
+    baseName = 'serveiler'
+    manifest {
+        attributes 'Main-Class': 'com.itsm.main.Main'
+    }
+    subprojects.each { subproject ->
+        from subproject.sourceSets.main.output.classesDir
+        from subproject.sourceSets.main.output.resourcesDir
+    }
+}
+
+//https://stackoverflow.com/questions/4871656/using-gradle-to-build-a-jar-with-dependencies
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    classifier = 'release'
+    from {
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
+//https://github.com/FibreFoX/javafx-gradle-plugin
+
+dependencies {
+
+    compile project(':servailer-gui')
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.7'
+
+//    compile group: 'org.springframework', name: 'spring-core', version: '4.1.2.RELEASE'
+//    compile group: 'org.springframework', name: 'spring', version: '2.5.6.SEC03'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+}

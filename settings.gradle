@@ -1,0 +1,4 @@
+rootProject.name = 'servailer'
+include 'servailer-gui'
+include 'servailer-core'
+
